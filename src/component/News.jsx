@@ -21,7 +21,7 @@ const News = ({ simplified }) => {
   });
 
   return (
-    <div>
+    <div style={{"min-height": "85vh"}}>
       {isLoading || !result ? (
         <NewsSkeleton />
       ) : (
@@ -39,62 +39,70 @@ const News = ({ simplified }) => {
                   0
                 }
               >
-                <Option value="Cryptocurency">Cryptocurrency</Option>
+                <Option value="Cryptocurrency">Cryptocurrency</Option>
                 {data?.data?.coins?.map((currency) => (
                   <Option value={currency.name}>{currency.name}</Option>
                 ))}
               </Select>
             </Col>
           )}
-
-          {result?.value.map((news, i) => (
-            <Col xs={24} sm={12} lg={8} key={i}>
-              <Card hoverable className="news-card">
-                <a href={news.url} target="_blank" rel="noreferrer">
-                  <div className="news-image-container">
-                    <Title className="news-title" level={4}>
-                      {news.name}
-                    </Title>
-                    <img
-                      src={news?.image?.thumbnail?.contentUrl || demoImage}
-                      alt="cryptocurrency"
-                      style={{
-                        width: "100px",
-                        height: "100px",
-                        objectFit: "cover",
-                      }}
-                    />
-                  </div>
-                  <p>
-                    {news.description.length > 100
-                      ? `${news.description.substring(0, 100)}...`
-                      : news.description}
-                  </p>
-                  <div className="provider-container">
-                    <div>
-                      <Avatar
-                        src={
-                          news.provider[0]?.image?.thumbnail?.contentUrl ||
-                          demoImage
-                        }
-                        alt="cryptocurrency news"
+  
+          {result?.value.length === 0 ? (
+            <Col span={24}>
+              <Title level={4}>
+                News for "{newsCategory}" not found!
+              </Title>
+            </Col>
+          ) : (
+            result?.value.map((news, i) => (
+              <Col xs={24} sm={12} lg={8} key={i}>
+                <Card hoverable className="news-card">
+                  <a href={news.url} target="_blank" rel="noreferrer">
+                    <div className="news-image-container">
+                      <Title className="news-title" level={4}>
+                        {news.name}
+                      </Title>
+                      <img
+                        src={news?.image?.thumbnail?.contentUrl || demoImage}
+                        alt="cryptocurrency"
+                        style={{
+                          width: "100px",
+                          height: "100px",
+                          objectFit: "cover",
+                        }}
                       />
-                      <Text className="provider-name">
-                        {news.provider[0]?.name}
+                    </div>
+                    <p>
+                      {news.description.length > 100
+                        ? `${news.description.substring(0, 100)}...`
+                        : news.description}
+                    </p>
+                    <div className="provider-container">
+                      <div>
+                        <Avatar
+                          src={
+                            news.provider[0]?.image?.thumbnail?.contentUrl ||
+                            demoImage
+                          }
+                          alt="cryptocurrency news"
+                        />
+                        <Text className="provider-name">
+                          {news.provider[0]?.name}
+                        </Text>
+                      </div>
+                      <Text>
+                        {moment(news.datePublished).startOf("ss").fromNow()}
                       </Text>
                     </div>
-                    <Text>
-                      {moment(news.datePublished).startOf("ss").fromNow()}
-                    </Text>
-                  </div>
-                </a>
-              </Card>
-            </Col>
-          ))}
+                  </a>
+                </Card>
+              </Col>
+            ))
+          )}
         </Row>
       )}
     </div>
-  );
+  );  
 };
 
 export default News;
