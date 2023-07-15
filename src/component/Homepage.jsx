@@ -6,22 +6,14 @@ import { useGetCryptosQuery } from "../services/cryptoApi";
 import News from "./News";
 import Cryptocurrencies from "./Cryptocurrencies";
 import { Skeleton } from "antd";
+import HomepageSkeleton from "./HomepageSkeleton";
 
 const { Title } = Typography;
 const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
 
   const globalStats = data?.data?.stats;
-  if (isFetching)
-    return (
-      <div>
-        <Skeleton active /> <br />
-        <Skeleton active /> <br />
-        <Skeleton active /> <br />
-        <Skeleton active /> <br />
-        <Skeleton active />
-      </div>
-    );
+  if (isFetching) return <HomepageSkeleton />;
 
   return (
     <React.Fragment>

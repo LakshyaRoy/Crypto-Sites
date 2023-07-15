@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
 import { Card, Row, Col, Input } from "antd";
-
+import CryptocurrenciesSkeleton from "./CryptocurrenciesSkeleton";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 // import Loader from "./Loader";
 
@@ -22,7 +22,6 @@ const Cryptocurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
-  if (isFetching) return "Loading....";
   // if (isFetching) return <Loader />;
 
   return (
@@ -35,47 +34,51 @@ const Cryptocurrencies = ({ simplified }) => {
           />
         </div>
       )}
-      <Row gutter={[32, 32]} className="crypto-card-container">
-        {cryptos?.map((currency) => (
-          <Col
-            xs={24}
-            sm={12}
-            lg={6}
-            className="crypto-card"
-            key={currency.uuid}
-          >
-            {/* Note: Change currency.id to currency.uuid  */}
-            <Link key={currency.uuid} to={`/crypto/${currency.uuid}`}>
-              <Card
-                hoverable
-                title={`${currency.rank}. ${currency.name}`}
-                extra={
-                  <img
-                    className="crypto-image"
-                    src={currency.iconUrl}
-                    alt={currency.name}
-                  />
-                }
-              >
-                <p>
-                  <strong>Price: </strong> {millify(currency.price)}
-                </p>
-                <p
-                  style={{
-                    marginTop: "10px",
-                    marginBottom: "10px",
-                  }}
+      {isFetching || !cryptos ? (
+        <CryptocurrenciesSkeleton />
+      ) : (
+        <Row gutter={[32, 32]} className="crypto-card-container">
+          {cryptos?.map((currency) => (
+            <Col
+              xs={24}
+              sm={12}
+              lg={6}
+              className="crypto-card"
+              key={currency.uuid}
+            >
+              {/* Note: Change currency.id to currency.uuid  */}
+              <Link key={currency.uuid} to={`/crypto/${currency.uuid}`}>
+                <Card
+                  hoverable
+                  title={`${currency.rank}. ${currency.name}`}
+                  extra={
+                    <img
+                      className="crypto-image"
+                      src={currency.iconUrl}
+                      alt={currency.name}
+                    />
+                  }
                 >
-                  <strong>Market Cap: </strong> {millify(currency.marketCap)}
-                </p>
-                <p>
-                  <strong>Daily Change: </strong> {millify(currency.change)}%
-                </p>
-              </Card>
-            </Link>
-          </Col>
-        ))}
-      </Row>
+                  <p>
+                    <strong>Price: </strong> {millify(currency.price)}
+                  </p>
+                  <p
+                    style={{
+                      marginTop: "10px",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    <strong>Market Cap: </strong> {millify(currency.marketCap)}
+                  </p>
+                  <p>
+                    <strong>Daily Change: </strong> {millify(currency.change)}%
+                  </p>
+                </Card>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      )}
     </>
   );
 };

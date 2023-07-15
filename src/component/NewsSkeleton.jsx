@@ -2,7 +2,6 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Typography, Row, Col, Card } from "antd";
-
 const { Text, Title } = Typography;
 
 const NewsSkeleton = () => {
