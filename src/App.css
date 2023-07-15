@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap');
+
 :root {
   --text-primary: #000;
   --bgPrimary: #fff;
   --bgSecondary: #f9f9f9;
-  --pink: #0071bd;
+  --hightlight-color: rgba(76, 105, 208, 0.8);
   --light-blue: #e6f7ff;
   --border: #d9d9d9;
 }
@@ -11,10 +13,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 a:hover {
-  color: var(--pink) !important;
+  color: var(--hightlight-color) !important;
 }
 
 .app {
@@ -55,6 +58,9 @@ a:hover {
 }
 .logo a {
   color: white;
+}
+.logo a:hover{
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 .menu-control-container {
   display: none !important;
@@ -149,7 +155,7 @@ a:hover {
 
 .coin-heading-container .coin-name {
   font-weight: 900;
-  color: var(--pink);
+  color: var(--hightlight-color);
 }
 
 .coin-heading-container p {
@@ -169,13 +175,13 @@ a:hover {
   font-weight: 700;
   font-size: 1.4rem;
   margin-top: 20px;
-  color: var(--pink);
+  color: var(--hightlight-color);
 }
 
 .coin-details-heading {
   font-weight: 700 !important;
   margin-top: 20px !important;
-  color: var(--pink) !important;
+  color: var(--hightlight-color) !important;
 }
 
 .coin-stats {
@@ -211,7 +217,7 @@ a:hover {
 
 .coin-desc-link h2 {
   font-weight: 700;
-  color: var(--pink);
+  color: var(--hightlight-color);
 }
 
 .coin-desc-link p {
@@ -220,7 +226,7 @@ a:hover {
 }
 
 .coin-desc-link a {
-  color: var(--pink);
+  color: var(--hightlight-color);
 }
 
 .coin-desc-link h3 {
@@ -250,7 +256,7 @@ a:hover {
 }
 
 .coin-link a {
-  color: var(--pink);
+  color: var(--hightlight-color);
   font-weight: 700;
   font-size: 1rem;
 }
