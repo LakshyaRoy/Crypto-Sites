@@ -21,7 +21,7 @@ const News = ({ simplified }) => {
   });
 
   return (
-    <div>
+    <div style={{ "min-height": "85vh" }}>
       {isLoading || !result ? (
         <NewsSkeleton />
       ) : (
@@ -41,7 +41,7 @@ const News = ({ simplified }) => {
                   0
                 }
               >
-                <Option value="Cryptocurency">Cryptocurrency</Option>
+                <Option value="Cryptocurrency">Cryptocurrency</Option>
                 {data?.data?.coins?.map((currency) => (
                   <Option value={currency.name}>{currency.name}</Option>
                 ))}
@@ -49,7 +49,11 @@ const News = ({ simplified }) => {
             </Col>
           )}
 
-          {result ? (
+          {result?.value.length === 0 ? (
+            <Col span={24}>
+              <Title level={4}>News for "{newsCategory}" not found!</Title>
+            </Col>
+          ) : (
             result?.value.map((news, i) => (
               <Col xs={24} sm={12} lg={8} key={i}>
                 <Card hoverable className="news-card">
@@ -94,8 +98,6 @@ const News = ({ simplified }) => {
                 </Card>
               </Col>
             ))
-          ) : (
-            <Title level={4}>No data Found!</Title>
           )}
         </Row>
       )}
