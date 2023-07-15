@@ -21,7 +21,7 @@ const News = ({ simplified }) => {
   });
 
   return (
-    <div style={{ "min-height": "85vh" }}>
+    <div style={{ minHeight: "85vh" }} key={1}>
       {isLoading || !result ? (
         <NewsSkeleton />
       ) : (
