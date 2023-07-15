@@ -22,7 +22,7 @@ const News = ({ simplified }) => {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoading || !result ? (
         <NewsSkeleton />
       ) : (
         <Row gutter={[24, 24]}>
