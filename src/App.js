@@ -1,6 +1,6 @@
 import "./App.css";
-import { Layout, Typography, Space } from "antd";
-import { Route, Link, Routes } from "react-router-dom";
+import { Layout } from "antd";
+import { Route, Routes } from "react-router-dom";
 
 import {
   Navbar,
@@ -8,8 +8,10 @@ import {
   Exchanges,
   CryptoDetails,
   Cryptocurrencies,
-  News,
+  News
 } from "./component";
+import Footer from "./component/Footer";
+
 const App = () => {
   return (
     <div className="app">
@@ -32,21 +34,7 @@ const App = () => {
             </Routes>
           </div>
         </Layout>
-
-        <div className="footer">
-          <Typography.Title
-            level={5}
-            style={{ color: "white", textAlign: "center" }}
-          >
-            CryptoDomain <br />
-            Copyrights 2023 ©️ All Rights Reserved
-          </Typography.Title>
-          <Space>
-            <Link to="/">Home</Link>
-            <Link to="/exchanges">Exchanges</Link>
-            <Link to="/news">News</Link>
-          </Space>
-        </div>
+        <Footer />
       </div>
     </div>
   );
