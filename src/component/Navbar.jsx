@@ -8,7 +8,7 @@ import {
   FundOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
-import icon from "../image/cryptocurrency.png";
+import icon from "../assets/cryptocurrency.png";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(true);
@@ -38,7 +38,7 @@ const Navbar = () => {
         <Avatar src={icon} size="large" />
 
         <Typography.Title level={2} className="logo">
-          <Link to="/">CryptoDomain</Link>
+          <Link to="/">CryptBlaze</Link>
         </Typography.Title>
 
         <Button
