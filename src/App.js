@@ -38,7 +38,7 @@ const App = () => {
             level={5}
             style={{ color: "white", textAlign: "center" }}
           >
-            CryptoDomain <br />
+            CryptBlaze <br />
             Copyrights 2023 ©️ All Rights Reserved
           </Typography.Title>
           <Space>

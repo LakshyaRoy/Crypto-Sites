@@ -4,6 +4,7 @@ import { Collapse, Row, Col, Typography, Avatar, Card } from "antd";
 import HTMLReactParser from "html-react-parser";
 
 import { useGetExchangesQuery } from "../services/cryptoApi";
+
 const { Text, Title } = Typography;
 const { Panel } = Collapse;
 
@@ -12,7 +13,7 @@ const Exchanges = () => {
 
   const marketPlace = data?.data?.markets;
 
-  console.log(marketPlace);
+  // console.log(marketPlace);
 
   if (isFetching) return "Loading...";
   return (
@@ -22,7 +23,7 @@ const Exchanges = () => {
       </Title>
       <Row gutter={[24, 24]}>
         {marketPlace.map((data, i) => (
-          <Col xs={24} sm={12} lg={8} key={i}>
+          <Col xs={24} sm={12} lg={6} key={i}>
             <Card hoverable className="news-image-container" key={i}>
               <Title className="heading" level={3}>
                 {i + 1}. {data?.exchange?.name}
