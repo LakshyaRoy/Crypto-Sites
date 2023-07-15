@@ -23,9 +23,3 @@ export const cryptoNewsApi = createApi({
 });
 
 export const { useGetCryptoNewsQuery } = cryptoNewsApi;
-
-// console.log(useGetCryptoNewsQuery);
-
-// GET https://bing-news-search1.p.rapidapi.com/news?q=cryptocurrency&cc=us&safeSearch=Off
-
-// https://api.bing.microsoft.com/v7.0/news/search?q=cryptocurrency
