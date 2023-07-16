@@ -21,7 +21,7 @@ const News = ({ simplified }) => {
   });
 
   return (
-    <div style={{"min-height": "85vh"}}>
+    <div style={{ minHeight: "85vh" }} key={1}>
       {isLoading || !result ? (
         <NewsSkeleton />
       ) : (
@@ -33,7 +33,9 @@ const News = ({ simplified }) => {
                 className="select-news"
                 placeholder="Select a Crypto"
                 optionFilterProp="children"
-                onChange={(value) => setNewsCategory(value)}
+                onChange={(value) =>
+                  setNewsCategory(value ? value : "No Data Found")
+                }
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
                   0
@@ -46,12 +48,10 @@ const News = ({ simplified }) => {
               </Select>
             </Col>
           )}
-  
+
           {result?.value.length === 0 ? (
             <Col span={24}>
-              <Title level={4}>
-                News for "{newsCategory}" not found!
-              </Title>
+              <Title level={4}>News for "{newsCategory}" not found!</Title>
             </Col>
           ) : (
             result?.value.map((news, i) => (
@@ -102,7 +102,7 @@ const News = ({ simplified }) => {
         </Row>
       )}
     </div>
-  );  
+  );
 };
 
 export default News;

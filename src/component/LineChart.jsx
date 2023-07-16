@@ -9,9 +9,9 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory.data.history[i].price);
-    coinTimeStamp.push(
-      new Date(coinHistory.data.history[i].timestamp).toLocaleDateString()
-    );
+    const timestamp = coinHistory.data.history[i].timestamp * 1000; // Convert timestamp to milliseconds
+    const formattedDate = new Date(timestamp).toLocaleDateString();
+    coinTimeStamp.push(formattedDate);
   }
   console.log(coinTimeStamp);
 

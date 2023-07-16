@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap");
 
 :root {
   --text-primary: #000;
@@ -13,7 +13,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 a:hover {
@@ -40,7 +40,6 @@ a:hover {
 .nav-container {
   position: fixed;
   left: 0;
-  margin: 10px;
   height: 100vh;
   margin: 0px;
   background-color: rgb(0, 21, 41);
@@ -51,6 +50,7 @@ a:hover {
   display: flex;
   padding: 20px;
   align-items: center;
+
   width: 100%;
 }
 .logo {
@@ -59,7 +59,7 @@ a:hover {
 .logo a {
   color: white;
 }
-.logo a:hover{
+.logo a:hover {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 .menu-control-container {

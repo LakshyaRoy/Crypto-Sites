@@ -19,7 +19,7 @@ import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } from "../services/cryptoApi";
-
+import Loader from "./Loader";
 import LineChart from "./LineChart";
 
 const { Title, Text } = Typography;
@@ -38,7 +38,7 @@ const CryptoDetails = () => {
   console.log(coinHistory);
   // console.log(cryptoDetails);
 
-  if (isFetching) return "Loading";
+  if (isFetching) return <Loader />;
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
   const stats = [
@@ -46,22 +46,31 @@ const CryptoDetails = () => {
       title: "Price to USD",
       value: `$ ${cryptoDetails.price && millify(cryptoDetails.price)}`,
       icon: <DollarCircleOutlined />,
+      id: 1,
     },
-    { title: "Rank", value: cryptoDetails.rank, icon: <NumberOutlined /> },
+    {
+      title: "Rank",
+      value: cryptoDetails.rank,
+      icon: <NumberOutlined />,
+      id: 2,
+    },
     {
       title: "24h Volume",
       value: `$ ${cryptoDetails.volume && millify(cryptoDetails.volume)}`,
       icon: <ThunderboltOutlined />,
+      id: 3,
     },
     {
       title: "Market Cap",
       value: `$ ${cryptoDetails.marketCap && millify(cryptoDetails.marketCap)}`,
       icon: <DollarCircleOutlined />,
+      id: 4,
     },
     {
       title: "All-time-high(daily avg.)",
       value: `$ ${millify(cryptoDetails.allTimeHigh.price)}`,
       icon: <TrophyOutlined />,
+      id: 5,
     },
   ];
 
@@ -70,11 +79,13 @@ const CryptoDetails = () => {
       title: "Number Of Markets",
       value: cryptoDetails.numberOfMarkets,
       icon: <FundOutlined />,
+      id: 1,
     },
     {
       title: "Number Of Exchanges",
       value: cryptoDetails.numberOfExchanges,
       icon: <MoneyCollectOutlined />,
+      id: 2,
     },
     {
       title: "Aprroved Supply",
@@ -84,16 +95,19 @@ const CryptoDetails = () => {
         <StopOutlined />
       ),
       icon: <ExclamationCircleOutlined />,
+      id: 3,
     },
     {
       title: "Total Supply",
       value: `$ ${millify(cryptoDetails.totalSupply)}`,
       icon: <ExclamationCircleOutlined />,
+      id: 4,
     },
     {
       title: "Circulating Supply",
       value: `$ ${millify(cryptoDetails.circulatingSupply)}`,
       icon: <ExclamationCircleOutlined />,
+      id: 5,
     },
   ];
 
@@ -134,8 +148,8 @@ const CryptoDetails = () => {
             </Title>
             <p>An Overview showing the stats of {cryptoDetails.name}</p>
           </Col>
-          {stats.map(({ icon, title, value }) => (
-            <Col className="coin-stats">
+          {stats.map(({ icon, title, value, id }) => (
+            <Col className="coin-stats" key={id}>
               <Col className="coin-stats-name">
                 <Text>{icon}</Text>
                 <Text>{title}</Text>
@@ -152,8 +166,8 @@ const CryptoDetails = () => {
             </Title>
             <p>An Overview showing the stats of all Cryptocurrency</p>
           </Col>
-          {genericStats.map(({ icon, title, value }) => (
-            <Col className="coin-stats">
+          {genericStats.map(({ icon, title, value, id }) => (
+            <Col className="coin-stats" key={id}>
               <Col className="coin-stats-name">
                 <Text>{icon}</Text>
                 <Text>{title}</Text>
