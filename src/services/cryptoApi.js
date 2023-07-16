@@ -1,7 +1,13 @@
 import { fetchBaseQuery, createApi } from "@reduxjs/toolkit/query/react";
 
+const selectRandomKey = () => {
+  const apiKeys = process.env.REACT_APP_CRYPTO_API.split(","); //we are splitting the api keys to make an array
+  const random = Math.floor(Math.random() * apiKeys.length); //this will get a random number
+  return apiKeys[random];
+};
+
 const cryptoApiHeaders = {
-  "X-RapidAPI-Key": "17762e89a3msh089d0531fe2fedfp1066bdjsn4cda64986014",
+  "X-RapidAPI-Key": selectRandomKey(),
   "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
 };
 
