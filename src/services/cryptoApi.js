@@ -1,9 +1,15 @@
 import { fetchBaseQuery, createApi } from "@reduxjs/toolkit/query/react";
 
 const selectRandomKey = () => {
-  const apiKeys = process.env.REACT_APP_CRYPTO_API.split(","); //we are splitting the api keys to make an array
-  const random = Math.floor(Math.random() * apiKeys.length); //this will get a random number
-  return apiKeys[random];
+  if (process.env.REACT_APP_CRYPTO_API.search(",") !== -1) {
+    const apiKeys = process.env.REACT_APP_CRYPTO_API.split(","); //we are splitting the api keys to make an array
+    const random = Math.floor(Math.random() * apiKeys.length); //this will get a random number
+    // console.log(process.env.REACT_APP_CRYPTO_API);
+    return apiKeys[random];
+  } else {
+    // console.log(process.env.REACT_APP_CRYPTO_API);
+    return process.env.REACT_APP_CRYPTO_API;
+  }
 };
 
 const cryptoApiHeaders = {
