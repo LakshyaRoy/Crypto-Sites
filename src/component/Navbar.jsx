@@ -7,6 +7,7 @@ import {
   BulbOutlined,
   FundOutlined,
   MenuOutlined,
+  InfoCircleOutlined,
 } from "@ant-design/icons";
 import icon from "../assets/cryptocurrency.png";
 
@@ -62,7 +63,7 @@ const Navbar = () => {
           <Menu.Item key="4" icon={<BulbOutlined />}>
             <Link to="/news">News</Link>
           </Menu.Item>
-          <Menu.Item key="5" icon={<BulbOutlined />}>
+          <Menu.Item key="5" icon={<InfoCircleOutlined />}>
             <Link to="/about">About</Link>
           </Menu.Item>
         </Menu>
