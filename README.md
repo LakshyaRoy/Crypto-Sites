@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+<h1 align="center">CryptBlaze</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Our project is a cryptocurrency website that leverages the power of the Rapid API to fetch real-time information and deliver comprehensive insights to users. Our platform offers a user-friendly interface that allows users to explore a wide range of cryptocurrencies, tokens, and exchanges, empowering them to stay informed and make educated decisions.
 
-## Available Scripts
+## Key Features
+- **Crypto Currency Overview:** Our site provides an extensive collection of crypto currencies and tokens, allowing users to delve into their profiles, histories, and performance data. Stay up-to-date with the latest information on market capitalization, trading volume, and circulating supply.
+- **Exchange Details:** Discover in-depth information about popular crypto exchanges, including trading pairs, transaction fees, and user reviews. Compare different exchanges to find the one that suits your needs.
+- **Real-time Price Tracking:** Get access to live price data for various cryptocurrencies. Track price movements, view historical charts, and analyze market trends to make informed investment decisions.
+- **News Section:** Stay informed about the latest developments in the crypto industry. Our dedicated news section provides curated articles and updates related to specific crypto currencies, ensuring you never miss important news that could impact your investments.
+- **Graphical Analysis:** Analyze the performance of cryptocurrencies through detailed graphs and charts. Identify patterns, track historical price movements, and gain insights into market trends to enhance your trading strategies.
+- **Comprehensive Stats:** Access a wide range of statistical data related to cryptocurrencies, including market capitalization, trading volume, price changes, and more. Stay on top of the market and make data-driven decisions.
 
-In the project directory, you can run:
+## Installation
+For setting up the project on your local system you would need to complete the following steps: 
+### Client
+1. Clone the repository locally: `git clone <repository-url>`
+2. Install dependencies: `npm install`
+3. Start the client server: `npm start`
+4. Open your browser and visit http://localhost:3000
 
-### `npm start`
+For the website to work normally, you would need to login on to RapidAPI to generate the API key, required to fetch the data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### API
+1. Obtain a Rapid API key:
+    - Sign up for an account on the Rapid API website and generate an API key
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Configure the Rapid API key:
+   - Create a `.env` file in the root directory of the project.
+   - Add the following lines to the `.env` file:
 
-### `npm test`
+  ```
+  REACT_APP_API_KEY=<your-api-key>
+  ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. After updating the env file, restart the server and visit http://localhost:3000
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots/Demo
+<!-- Screenshots and Demo will be added in this section -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
+   - React
+   - Ant Design for styling
+   - Rapid API for fetching cryptocurrency data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
+We welcome contributions from the community. If you would like to contribute to the project, please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with descriptive messages.
+4. Push your changes to your forked repository.
+5. Submit a pull request to the main repository.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
+This project has been made during Citro Hacks Hackathon by our team members. Any resemblance is unintentional and we are sorry for the same.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits
+Resources that we used while working on this project:
+- ChatGPT by OpenAI
+- RapidAPI Documentation

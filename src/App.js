@@ -8,9 +8,10 @@ import {
   Exchanges,
   CryptoDetails,
   Cryptocurrencies,
-  News,
+  News, 
+  Footer,
+  About
 } from "./component";
-import Footer from "./component/Footer";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
               />
               <Route exact path="/crypto/:coinId" element={<CryptoDetails />} />
               <Route exact path="/news" element={<News />} />
+              <Route exact path="/about" element={<About />} />
             </Routes>
           </div>
         </Layout>
