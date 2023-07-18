@@ -35,13 +35,33 @@ For the website to work normally, you would need to login on to RapidAPI to gene
 3. After updating the env file, restart the server and visit http://localhost:3000
 
 
-## Screenshots/Demo
-<!-- Screenshots and Demo will be added in this section -->
-
 ## Technologies Used
    - React
    - Ant Design for styling
    - Rapid API for fetching cryptocurrency data.
+
+## Screenshots/Demo
+- Home Page
+![Home Page](./Site%20Demo/Home.png)
+
+- Cryptocurriencies listed
+![cryptocurrencies](./Site%20Demo/CryptoCurrency.png)
+
+- Exchanges Section
+![Crypto Exchanges](./Site%20Demo/Exchanges.png)
+
+- News Section
+![News](./Site%20Demo/News.png)
+
+- Detail Page for crypto
+![Details](./Site%20Demo/Detail.png)
+
+- Prices Chart
+![Chart](./Site%20Demo/Chart.png)
+![Chart](./Site%20Demo/Chart2.png)
+
+- About Us
+![About](./Site%20Demo/About.png)
 
 ## Contributing
 We welcome contributions from the community. If you would like to contribute to the project, please follow these steps:
