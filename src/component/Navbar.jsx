@@ -50,7 +50,7 @@ const Navbar = () => {
         </Button>
       </div>
       {activeMenu && (
-        <Menu theme="dark">
+        <Menu theme="dark" mode="inline">
           <Menu.Item key="1" icon={<HomeOutlined />}>
             <Link to="/">Home</Link>
           </Menu.Item>

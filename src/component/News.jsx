@@ -15,10 +15,14 @@ const demoImage =
 const News = ({ simplified }) => {
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
   const { data, isLoading } = useGetCryptosQuery(100);
+  // console.log(data);
+
   const { data: result } = useGetCryptoNewsQuery({
     search: newsCategory,
-    count: simplified ? 6 : 12,
+    count: 9,
   });
+
+  // console.log(result?.data);
 
   return (
     <div style={{ minHeight: "85vh" }} key={1}>
@@ -49,27 +53,30 @@ const News = ({ simplified }) => {
             </Col>
           )}
 
-          {result?.value.length === 0 ? (
+          {result?.articles?.length === 0 ? (
             <Col span={24}>
               <Title level={4}>News for "{newsCategory}" not found!</Title>
             </Col>
           ) : (
-            result?.value.map((news, i) => (
+            result?.articles?.map((news, i) => (
               <Col xs={24} sm={12} lg={8} key={i}>
                 <Card hoverable className="news-card">
-                  <a href={news.url} target="_blank" rel="noreferrer">
+                  <a href={news?.source?.url} target="_blank" rel="noreferrer">
                     <div className="news-image-container">
                       <Title className="news-title" level={4}>
-                        {news.name}
+                        {news?.title.length > 100
+                          ? `${news?.title.substring(0, 70)}...`
+                          : news?.title}
                       </Title>
                       <img
-                        src={news?.image?.thumbnail?.contentUrl || demoImage}
+                        src={news?.image || demoImage}
                         alt="cryptocurrency"
                         style={{
                           width: "100px",
                           height: "100px",
                           objectFit: "cover",
                         }}
+                        loading="lazy"
                       />
                     </div>
                     <p>
@@ -79,19 +86,16 @@ const News = ({ simplified }) => {
                     </p>
                     <div className="provider-container">
                       <div>
-                        <Avatar
-                          src={
-                            news.provider[0]?.image?.thumbnail?.contentUrl ||
-                            demoImage
-                          }
+                        {/* <Avatar
+                          src={news.source_favicon_url || demoImage}
                           alt="cryptocurrency news"
-                        />
+                        /> */}
                         <Text className="provider-name">
-                          {news.provider[0]?.name}
+                          {news?.source?.name}
                         </Text>
                       </div>
                       <Text>
-                        {moment(news.datePublished).startOf("ss").fromNow()}
+                        {moment(news.publishedAt).startOf("ss").fromNow()}
                       </Text>
                     </div>
                   </a>

@@ -18,14 +18,10 @@ const selectRandomKey = () => {
   }
 };
 
-const cryptoNewsHeaders = {
-  "X-RapidAPI-Key": selectRandomKey(),
-  "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-};
+const baseUrl = "https://gnews.io/api/v4/";
 
-const baseUrl = "https://bing-news-search1.p.rapidapi.com";
-
-const createRequest = (url) => ({ url, headers: cryptoNewsHeaders });
+const createRequest = (url) => ({ url });
+const apikey = "b3739d790ea2103b43c381f2f5a0b9bd";
 
 export const cryptoNewsApi = createApi({
   reducerPath: "cryptoNewsApi",
@@ -34,7 +30,7 @@ export const cryptoNewsApi = createApi({
     getCryptoNews: builder.query({
       query: ({ count, search }) =>
         createRequest(
-          `/news/search?q=${search}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`
+          `search?q=${search}&lang=en&max=${count}&apikey=${apikey}`
         ),
     }),
   }),

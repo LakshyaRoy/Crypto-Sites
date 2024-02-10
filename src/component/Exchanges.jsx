@@ -4,20 +4,28 @@ import { Collapse, Row, Col, Typography, Avatar, Card } from "antd";
 import HTMLReactParser from "html-react-parser";
 import ExchangesSkeleton from "./ExchangesSkeleton";
 import { useGetExchangesQuery } from "../services/cryptoApi";
+import { CryptoExchangeList } from "../services/market";
+import { Flex } from "antd";
+import Statistic from "antd/es/statistic/Statistic";
 
 const { Text, Title } = Typography;
 const { Panel } = Collapse;
 
 const Exchanges = () => {
-  const { data, isFetching } = useGetExchangesQuery();
+  // const { data, isFetching } = useGetExchangesQuery();
 
-  const marketPlace = data?.data?.markets;
+  // const marketPlace = data?.data?.markets;
+  const cryptoMarketPlace = CryptoExchangeList?.cryptoExchanges;
+  // const data = cryptoMarketPlace?.cryptoExchanges?.name;
+  // console.log(data);
 
-  // console.log(marketPlace);
+  console.log(cryptoMarketPlace);
+
+  const isFetching = false;
 
   return (
     <React.Fragment>
-      {isFetching || !marketPlace ? (
+      {isFetching || !cryptoMarketPlace ? (
         <ExchangesSkeleton />
       ) : (
         <div>
@@ -25,22 +33,53 @@ const Exchanges = () => {
             Cryptocurrency Exchange platforms.
           </Title>
           <Row gutter={[24, 24]}>
-            {marketPlace.map((data, i) => (
+            {cryptoMarketPlace.map((data, i) => (
               <Col xs={24} sm={12} lg={6} key={i}>
-                <Card hoverable className="news-image-container" key={i}>
-                  <Title className="heading" level={3}>
-                    {i + 1}. {data?.exchange?.name}
-                  </Title>
-
-                  <Avatar
-                    src={data?.exchange?.iconUrl}
-                    alt={data?.exchange?.name}
+                <Card hoverable key={i}>
+                  <Flex
+                    horizontal={true.toString()}
+                    align="center"
+                    justify="space-between"
+                    style={{ width: "100%", paddingBottom: "5px" }}
+                  >
+                    <Title className="heading" level={3}>
+                      {i + 1}. {data?.name}
+                    </Title>
+                    <Avatar
+                      src={data?.image}
+                      alt={data?.name}
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Flex>
+                  <Flex
+                    vertical
+                    align="start "
+                    justify="space-between"
                     style={{
-                      width: "50px",
-                      height: "50px",
-                      objectFit: "cover",
+                      borderTop: "1px solid #ececec",
+                      paddingTop: "10px",
                     }}
-                  />
+                  >
+                    <Title level={5}>
+                      Location:
+                      <Text> {data?.location}</Text>
+                    </Title>
+                    <Title level={5}>
+                      Trading Pairs:
+                      <Text> {millify(data?.tradingPairs)}</Text>
+                    </Title>
+                    <Title level={5}>
+                      Daily Volume:
+                      <Text>
+                        {" "}
+                        {millify(data?.dailyVolume.replace(/,/g, ""))}
+                      </Text>
+                    </Title>
+                  </Flex>
                 </Card>
               </Col>
             ))}
