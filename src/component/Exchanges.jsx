@@ -1,25 +1,14 @@
 import React from "react";
 import millify from "millify";
 import { Collapse, Row, Col, Typography, Avatar, Card } from "antd";
-import HTMLReactParser from "html-react-parser";
 import ExchangesSkeleton from "./ExchangesSkeleton";
-import { useGetExchangesQuery } from "../services/cryptoApi";
 import { CryptoExchangeList } from "../services/market";
 import { Flex } from "antd";
-import Statistic from "antd/es/statistic/Statistic";
 
 const { Text, Title } = Typography;
-const { Panel } = Collapse;
 
 const Exchanges = () => {
-  // const { data, isFetching } = useGetExchangesQuery();
-
-  // const marketPlace = data?.data?.markets;
   const cryptoMarketPlace = CryptoExchangeList?.cryptoExchanges;
-  // const data = cryptoMarketPlace?.cryptoExchanges?.name;
-  // console.log(data);
-
-  console.log(cryptoMarketPlace);
 
   const isFetching = false;
 

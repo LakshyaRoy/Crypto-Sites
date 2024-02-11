@@ -21,16 +21,6 @@ const baseUrl = "https://coinranking1.p.rapidapi.com";
 
 const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
 
-const marketURL = "https://pro-api.coinmarketcap.com/v1/exchange/info";
-
-const cryptoExchangeMarket = {
-  "X-CMC_PRO_API_KEY": "af513be2-f5ed-4666-8a94-95355a95d9af",
-};
-const createRqForMarker = (url) => ({
-  url,
-  headers: cryptoExchangeMarket,
-});
-
 export const cryptoApi = createApi({
   reducerPath: "cryptoApi",
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
@@ -45,9 +35,6 @@ export const cryptoApi = createApi({
       query: ({ coinId, timePeriod }) =>
         createRequest(`/coin/${coinId}/history?timePeriod=${timePeriod}`),
     }),
-    getExchanges: builder.query({
-      query: () => createRqForMarker(marketURL),
-    }),
   }),
 });
 
@@ -55,5 +42,4 @@ export const {
   useGetCryptosQuery,
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
-  useGetExchangesQuery,
 } = cryptoApi;

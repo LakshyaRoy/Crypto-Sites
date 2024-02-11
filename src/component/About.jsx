@@ -11,7 +11,7 @@ const { Title, Paragraph, Text } = Typography;
 const About = () => {
   const teamMembers = [
     {
-      name: "Lakshya",
+      name: "Lakshya Roy",
       LinkedIn: "https://www.linkedin.com/in/lakshya-roy729/",
       Twitter: "https://twitter.com/lakshya729",
       Mail: " Lakshyaroy848@gmail.com",
@@ -19,23 +19,23 @@ const About = () => {
       oneLiner:
         "Transforming design concepts into interactive web experiences.",
     },
-    {
-      name: "Mayank",
-      LinkedIn: "https://www.linkedin.com/in/mayank-bansal200604012/",
-      Twitter: "https://twitter.com/SimplerMayank",
-      Mail: " mayankbansal125@gmail.com",
-      GitHub: "https://github.com/MayankBansal12",
-      oneLiner: "Looking for web dev projects to work on!",
-    },
-    {
-      name: "Shivansh",
-      LinkedIn: "http://www.linkedin.com/in/shivansh-shekher-ojha-3435651b8",
-      Twitter: "http://www.linkedin.com/in/shivansh-shekher-ojha-3435651b8",
-      Mail: " ssojha0911@gmail.com",
-      GitHub: "https://github.com/Shivansh0911",
-      oneLiner:
-        "Building cutting-edge AI/ML models in Python to unlock the potential of data.",
-    },
+    // {
+    //   name: "Mayank",
+    //   LinkedIn: "https://www.linkedin.com/in/mayank-bansal200604012/",
+    //   Twitter: "https://twitter.com/SimplerMayank",
+    //   Mail: " mayankbansal125@gmail.com",
+    //   GitHub: "https://github.com/MayankBansal12",
+    //   oneLiner: "Looking for web dev projects to work on!",
+    // },
+    // {
+    //   name: "Shivansh",
+    //   LinkedIn: "http://www.linkedin.com/in/shivansh-shekher-ojha-3435651b8",
+    //   Twitter: "http://www.linkedin.com/in/shivansh-shekher-ojha-3435651b8",
+    //   Mail: " ssojha0911@gmail.com",
+    //   GitHub: "https://github.com/Shivansh0911",
+    //   oneLiner:
+    //     "Building cutting-edge AI/ML models in Python to unlock the potential of data.",
+    // },
   ];
 
   return (
@@ -98,20 +98,12 @@ const About = () => {
         </ul>
       </Paragraph>
 
-      <Paragraph>
-        Our team is dedicated to providing a seamless user experience, ensuring
-        that our platform remains intuitive, reliable, and visually appealing.
-        We believe in the power of cryptocurrencies and aim to empower traders,
-        analysts, and enthusiasts alike by providing a centralized hub for
-        crypto-related information.
-      </Paragraph>
-
       <Title level={4}>Our Team</Title>
       <Paragraph>
         <Row gutter={[16, 16]}>
           {teamMembers.map((member, index) => (
             <Col xs={24} sm={12} md={8} key={index}>
-              <Card>
+              <Card hoverable>
                 <Title level={4}>{member.name}</Title>
                 <Text strong>{member.oneLiner}</Text>
                 <div

@@ -21,7 +21,7 @@ const selectRandomKey = () => {
 const baseUrl = "https://gnews.io/api/v4/";
 
 const createRequest = (url) => ({ url });
-const apikey = "b3739d790ea2103b43c381f2f5a0b9bd";
+const apikey = process.env.REACT_APP_CRYPTO_NEWS;
 
 export const cryptoNewsApi = createApi({
   reducerPath: "cryptoNewsApi",

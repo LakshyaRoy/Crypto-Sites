@@ -35,7 +35,7 @@ const CryptoDetails = () => {
   });
   const cryptoDetails = data?.data?.coin;
 
-  console.log(coinHistory);
+  // console.log(coinHistory);
   // console.log(cryptoDetails);
 
   if (isFetching) return <Loader />;
@@ -44,7 +44,7 @@ const CryptoDetails = () => {
   const stats = [
     {
       title: "Price to USD",
-      value: `$ ${cryptoDetails.price && millify(cryptoDetails.price)}`,
+      value: `$ ${cryptoDetails.price && millify(Number(cryptoDetails.price))}`,
       icon: <DollarCircleOutlined />,
       id: 1,
     },
@@ -56,19 +56,23 @@ const CryptoDetails = () => {
     },
     {
       title: "24h Volume",
-      value: `$ ${cryptoDetails.volume && millify(cryptoDetails.volume)}`,
+      value: `$ ${
+        cryptoDetails.volume && millify(Number(cryptoDetails.volume))
+      }`,
       icon: <ThunderboltOutlined />,
       id: 3,
     },
     {
       title: "Market Cap",
-      value: `$ ${cryptoDetails.marketCap && millify(cryptoDetails.marketCap)}`,
+      value: `$ ${
+        cryptoDetails.marketCap && millify(Number(cryptoDetails.marketCap))
+      }`,
       icon: <DollarCircleOutlined />,
       id: 4,
     },
     {
       title: "All-time-high(daily avg.)",
-      value: `$ ${millify(cryptoDetails.allTimeHigh.price)}`,
+      value: `$ ${millify(Number(cryptoDetails.allTimeHigh.price))}`,
       icon: <TrophyOutlined />,
       id: 5,
     },
@@ -99,13 +103,13 @@ const CryptoDetails = () => {
     },
     {
       title: "Total Supply",
-      value: `$ ${millify(cryptoDetails.totalSupply)}`,
+      value: `$ ${millify(Number(cryptoDetails.totalSupply))}`,
       icon: <ExclamationCircleOutlined />,
       id: 4,
     },
     {
       title: "Circulating Supply",
-      value: `$ ${millify(cryptoDetails.circulatingSupply)}`,
+      value: `$ ${millify(Number(cryptoDetails.circulatingSupply))}`,
       icon: <ExclamationCircleOutlined />,
       id: 5,
     },
@@ -136,7 +140,7 @@ const CryptoDetails = () => {
       {/* line chart */}
       <LineChart
         coinHistory={coinHistory}
-        currentPrice={millify(cryptoDetails.price)}
+        currentPrice={millify(Number(cryptoDetails.price))}
         coinName={cryptoDetails.name}
       />
 
@@ -192,8 +196,8 @@ const CryptoDetails = () => {
           <Title level={3} className="coin-details-heading">
             {cryptoDetails.name}
           </Title>
-          {cryptoDetails.links.map((link) => (
-            <Row className="coin-link" key={link.name}>
+          {cryptoDetails.links.map((link, i) => (
+            <Row className="coin-link" key={i}>
               <Title level={5} className="link-name">
                 {link.type}
               </Title>

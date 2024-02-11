@@ -27,25 +27,25 @@ const Homepage = () => {
         <Col span={12}>
           <Statistic
             title="Total Exchanges"
-            value={millify(globalStats.totalExchanges)}
+            value={millify(Number(globalStats.totalExchanges))}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title="Total Market Cap"
-            value={millify(globalStats.totalMarketCap)}
+            value={millify(Number(globalStats.totalMarketCap))}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title="Total 24th Volume"
-            value={millify(globalStats.total24hVolume)}
+            value={millify(Number(globalStats.total24hVolume))}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title="Total Markets"
-            value={millify(globalStats.totalMarkets)}
+            value={millify(Number(globalStats.totalMarkets))}
           />
         </Col>
       </Row>

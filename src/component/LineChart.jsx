@@ -13,7 +13,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     const formattedDate = new Date(timestamp).toLocaleDateString();
     coinTimeStamp.push(formattedDate);
   }
-  console.log(coinTimeStamp);
+  // console.log(coinTimeStamp);
 
   const data = {
     labels: coinTimeStamp,
@@ -30,13 +30,11 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   };
   const options = {
     scales: {
-      yAxes: [
-        {
-          tick: {
-            beginAtZero: true,
-          },
+      y: {
+        ticks: {
+          beginAtZero: true,
         },
-      ],
+      },
     },
   };
 
