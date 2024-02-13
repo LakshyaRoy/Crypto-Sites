@@ -60,9 +60,6 @@ For the website to work normally, you would need to login on to RapidAPI to gene
 ![Chart](./Site%20Demo/Chart.png)
 ![Chart](./Site%20Demo/Chart2.png)
 
-- About Us
-![About](./Site%20Demo/About.png)
-
 ## Contributing
 We welcome contributions from the community. If you would like to contribute to the project, please follow these steps:
 1. Fork the repository.
